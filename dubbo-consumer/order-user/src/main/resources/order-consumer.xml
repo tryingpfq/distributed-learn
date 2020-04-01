@@ -8,7 +8,7 @@
     <dubbo:application name="order-provider" owner="try"/>
 
     <!--dubbo这个服务所要暴露的服务地址所对应的注册中心-->
-    <dubbo:registry address="zookeeper://10.6.4.91:2181"/>
+    <dubbo:registry address="zookeeper://10.9.12.211:2181"/>
 
     <!--生成一个远程服务的调用代理-->
     <dubbo:reference id="orderService" interface="com.tryingpfq.provider.api.order.IOrderService"/>

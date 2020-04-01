@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" xmlns:dubb="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans        http://www.springframework.org/schema/beans/spring-beans.xsd        http://code.alibabatech.com/schema/dubbo        http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--    <dubbo:annotation package="com.tryingpfq.provider"/>-->
+
+<!--    &lt;!&ndash;当前项目在整个分布式架构里面的唯一名称，计算依赖关系的标签&ndash;&gt;-->
+<!--    <dubbo:application name="order-provider" owner="try"/>-->
+
+<!--    <dubbo:monitor protocol="registry"/>-->
+
+<!--    &lt;!&ndash;dubbo这个服务所要暴露的服务地址所对应的注册中心&ndash;&gt;-->
+<!--    <dubbo:registry protocol="zookeeper" address="zookeeper://10.9.12.211:2181"/>-->
+
+<!--    &lt;!&ndash;当前服务发布所依赖的协议；webserovice、Thrift、Hessain、http&ndash;&gt;-->
+<!--    <dubbo:protocol name="dubbo" port="20880"/>-->
+
+<!--    &lt;!&ndash;服务发布的配置，需要暴露的服务接口&ndash;&gt;-->
+<!--    <dubbo:service-->
+<!--            interface="com.tryingpfq.provider.api.order.IOrderService"-->
+<!--            ref="orderServiceImpl"/>-->
+
+<!--&lt;!&ndash;    &lt;!&ndash;Bean bean定义&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;    <bean id="orderServiceImpl" class="com.tryingpfq.provider.order.service.OrderServiceImpl"/>&ndash;&gt;-->
+
+
+    <!--当前项目在整个分布式架构里面的唯一名称，计算依赖关系的标签-->
+    <!--  <dubbo:application name="${application.name}" owner="${dubbo.application.owner}"/>-->
+    <!--dubbo这个服务所要暴露的服务地址所对应的注册中心-->
+    <dubbo:registry protocol="zookeeper"
+                    address="${dubbo.zk.servers}"
+                    group="${dubbo.zk.group}"
+                    file="${dubbo.cache.dir}/dubbo-order.cache"/>
+
+    <!--当前服务发布所依赖的协议；webserovice、Thrift、Hessain、http-->
+    <dubbo:protocol
+            name="dubbo"
+            port="${dubbo.service.provider.port}"
+            threadpool="cached"
+            threads="${dubbo.service.provider.threads:200}"
+            accesslog="${dubbo.protocol.accesslog}"/>
+
+<!--    <import resource="classpath*:META-INF/client/user-customer.xml"/>-->
+
+
+</beans>

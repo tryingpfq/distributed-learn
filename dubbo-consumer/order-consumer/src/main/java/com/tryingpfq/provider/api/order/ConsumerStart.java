@@ -10,7 +10,7 @@ import java.io.IOException;
  **/
 public class ConsumerStart {
     public static void main(String[] args) throws IOException {
-        ClassPathXmlApplicationContext context=new ClassPathXmlApplicationContext("order-consumer.xml");
+        ClassPathXmlApplicationContext context=new ClassPathXmlApplicationContext("META-INF.client/order-consumer.xml");
 
         //用户下单过程
         IOrderService services=(IOrderService)context.getBean("orderService");

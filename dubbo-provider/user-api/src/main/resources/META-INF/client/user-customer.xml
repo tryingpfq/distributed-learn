@@ -12,9 +12,7 @@
 
     <context:annotation-config/>
 
-    <dubbo:reference id="orderServices"
-                     interface="com.tryingpfq.provider.api.order.IOrderService"
-                     protocol="dubbo">
-    </dubbo:reference>
+    <dubbo:reference id="userServices" interface="com.tryingpfq.provider.user.service.IUserService" protocol="dubbo"
+        check="false"/>
 
 </beans>

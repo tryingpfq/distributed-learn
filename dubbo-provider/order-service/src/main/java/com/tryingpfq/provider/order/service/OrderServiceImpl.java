@@ -1,6 +1,5 @@
 package com.tryingpfq.provider.order.service;
 
-import com.alibaba.dubbo.config.annotation.Service;
 import com.tryingpfq.provider.api.order.IOrderService;
 import com.tryingpfq.provider.api.order.OrderRequest;
 import com.tryingpfq.provider.api.order.OrderResponse;
@@ -8,6 +7,7 @@ import com.tryingpfq.provider.user.service.DebitRequest;
 import com.tryingpfq.provider.user.service.DebitResponse;
 import com.tryingpfq.provider.user.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.jta.JtaTransactionManager;
 
 import javax.transaction.SystemException;
@@ -17,15 +17,16 @@ import javax.transaction.UserTransaction;
  * @author tryingpfq
  * @date 2020/3/30
  **/
-@Service
+@Service(value = "orderService")
 public class OrderServiceImpl implements IOrderService {
     @Autowired
     JtaTransactionManager springTransactionManager;
 
     @Autowired
-    IUserService userService;
+    IUserService userServices;
 
     public OrderResponse order(OrderRequest request) {
+        System.err.println(request.toString());
         OrderResponse response=new OrderResponse();
         //order下单后调用user更新余额
         UserTransaction userTransaction=springTransactionManager.getUserTransaction();
@@ -33,7 +34,7 @@ public class OrderServiceImpl implements IOrderService {
         try {
             userTransaction.begin();
            // orderDao.insertOrder();
-            debitResponse= userService.debit( DebitRequest.valueOf(1,100));
+            debitResponse= userServices.debit( DebitRequest.valueOf(1,100));
             userTransaction.commit();
         }catch(Exception e){
             try {

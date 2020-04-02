@@ -95,11 +95,7 @@
                 <artifactId>zkclient</artifactId>
                 <version>0.1</version>
             </dependency>
-<!--            <dependency>-->
-<!--                <groupId>com.gupao.vip.mic.dubbo.user</groupId>-->
-<!--                <artifactId>api</artifactId>-->
-<!--                <version>1.0-SNAPSHOT</version>-->
-<!--            </dependency>-->
+
 
             <dependency>
                 <groupId>com.atomikos</groupId>

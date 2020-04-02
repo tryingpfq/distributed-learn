@@ -1,5 +1,6 @@
 package com.tryingpfq.provider.api.order;
 
+import com.tryingpfq.provider.user.service.IUserService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.IOException;
@@ -10,17 +11,17 @@ import java.io.IOException;
  **/
 public class ConsumerStart {
     public static void main(String[] args) throws IOException {
-        ClassPathXmlApplicationContext context=new ClassPathXmlApplicationContext("META-INF.client/order-consumer.xml");
+        ClassPathXmlApplicationContext context=new ClassPathXmlApplicationContext("spring/applicationDubbo.xml");
 
         //用户下单过程
-        IOrderService services=(IOrderService)context.getBean("orderService");
+        IUserService services=(IUserService)context.getBean("userServices");
 
         OrderRequest request= new OrderRequest();
         request.setId(1);
         request.setName("tryingpfq");
-        OrderResponse response=services.order(request);
+//        OrderResponse response=services.order(request);
 
-        System.out.println(response);
+//        System.out.println(response);
 
         //Order.doOrder();
         System.in.read();

@@ -12,10 +12,10 @@
     <artifactId>order-consumer</artifactId>
 
     <dependencies>
-        <dependency>
-            <groupId>com.tryingpfq</groupId>
-            <artifactId>order-api</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.tryingpfq</groupId>-->
+<!--            <artifactId>order-api</artifactId>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>com.tryingpfq</groupId>
             <artifactId>user-api</artifactId>

@@ -1,6 +1,8 @@
 package com.tryingpfq.provider.api.order;
 
-import com.tryingpfq.provider.user.service.IUserService;
+import com.tryingpfq.user.api.DebitRequest;
+import com.tryingpfq.user.api.DebitResponse;
+import com.tryingpfq.user.api.IUserService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.IOException;
@@ -16,9 +18,11 @@ public class ConsumerStart {
         //用户下单过程
         IUserService services=(IUserService)context.getBean("userServices");
 
-        OrderRequest request= new OrderRequest();
-        request.setId(1);
-        request.setName("tryingpfq");
+        DebitResponse debit = services.debit(new DebitRequest());
+        System.err.println(debit.toString());
+//        OrderRequest request= new OrderRequest();
+//        request.setId(1);
+//        request.setName("tryingpfq");
 //        OrderResponse response=services.order(request);
 
 //        System.out.println(response);

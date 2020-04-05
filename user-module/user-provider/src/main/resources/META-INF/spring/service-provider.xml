@@ -17,13 +17,10 @@
 
     <!--当前服务发布所依赖的协议；webserovice、Thrift、Hessain、http-->
     <dubbo:protocol
-                    host="10.9.12.211"
                     name="dubbo"
                     port="${dubbo.service.provider.port}"
                     threadpool="cached"
                     threads="${dubbo.service.provider.threads:200}"
                     accesslog="${dubbo.protocol.accesslog}"/>
-
- <!--   <import resource="classpath*:META-INF/client/user-customer.xml"/>-->
 
 </beans>

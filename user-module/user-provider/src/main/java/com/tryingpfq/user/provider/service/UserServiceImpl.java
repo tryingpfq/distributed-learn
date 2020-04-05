@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
  * @Author tryingpfq
  * @Date 2020/4/1
  */
-@Service(value = "userService")
+@Service(value = "userServices")
 public class UserServiceImpl implements IUserService {
     @Override
     public DebitResponse debit(DebitRequest request) {

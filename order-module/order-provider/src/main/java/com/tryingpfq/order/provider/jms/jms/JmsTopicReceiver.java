@@ -1,4 +1,4 @@
-package com.tryingpfq.jms;
+package com.tryingpfq.order.provider.jms.jms;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 

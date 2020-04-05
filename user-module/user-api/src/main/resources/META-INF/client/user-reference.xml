@@ -13,5 +13,8 @@
     <context:annotation-config/>
 
     <dubbo:reference id="userServices" interface="com.tryingpfq.user.api.IUserService" protocol="dubbo"/>
+    <dubbo:reference id="userCoreServices" interface="com.tryingpfq.user.api.IUserCoreService"/>
+
+    <dubbo:reference id="userQueryServices" interface="com.tryingpfq.user.api.IUserQueryService"/>
 
 </beans>

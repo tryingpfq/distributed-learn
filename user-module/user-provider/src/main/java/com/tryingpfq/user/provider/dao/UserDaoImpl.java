@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
  * @Author tryingpfq
  * @Date 2020/4/1
  */
-@Repository
+//@Repository
 public class UserDaoImpl implements UserDao {
     @Autowired
     JdbcTemplate orderJdbcTemplate;
